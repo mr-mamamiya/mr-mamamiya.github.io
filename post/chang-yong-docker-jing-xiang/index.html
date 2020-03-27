@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>文章归档 | Gridea</title>
+<title>常用Docker镜像 | Gridea</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -18,7 +18,22 @@
 
 
 
-    <meta name="description" content="温故而知新">
+    <meta name="description" content="Redis
+
+拉取镜像
+
+docker pull redis
+
+
+运行Redis
+
+docker run -p 6379:6379 -d redis:latest redis-server
+
+Elasticsearch(集群)
+说明：
+
+这..." />
+    <meta name="keywords" content="" />
   </head>
   <body>
     <div id="app" class="main">
@@ -88,30 +103,54 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          
+          <div class="post-detail">
+            <h2 class="post-title">常用Docker镜像</h2>
+            <div class="post-date">2020-03-27</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="redis">Redis</h1>
+<ol>
+<li>拉取镜像</li>
+</ol>
+<pre><code>docker pull redis
+</code></pre>
+<ol start="2">
+<li>运行Redis</li>
+</ol>
+<pre><code>docker run -p 6379:6379 -d redis:latest redis-server
+</code></pre>
+<h1 id="elasticsearch集群">Elasticsearch(集群)</h1>
+<p>说明：</p>
+<ul>
+<li>这里使用的是Elasticsearch 7.3.0版本</li>
+<li>这里启用3个Container，一个Master，两个Slave</li>
+<li>具体配置：</li>
+</ul>
+<pre><code>Elasticsearch集群
+    |------ Master
+        |--- 端口：9500
+        |--- TCP端口：9300
+        |--- 配置文件目录：~/var/elasticsearch/config/master/elasticsearch.yml
+        |--- 共享卷目录：~/var/elasticsearch/config/master/data
+    |------ Slave1
+        |--- 端口：9600
+        |--- TCP端口：9301
+        |--- 配置文件目录：~/var/elasticsearch/config/slave1/elasticsearch.yml
+        |--- 共享卷目录：~/var/elasticsearch/config/slave1/data
+    |------ Slave2
+        |--- 端口：9700
+        |--- TCP端口：9302
+        |--- 配置文件目录：~/var/elasticsearch/config/slave2/elasticsearch.yml
+        |--- 共享卷目录：~/var/elasticsearch/config/slave2/data
+</code></pre>
 
-          <h2 class="archives-title">文章归档</h2>
-          <div class="archives-container">
+            </div>
             
-              <h2 class="year" data-aos="fade-in" data-aos-delay="500">2020</h2>
-              
-                
-                  <article class="post">
-                    <a href="https://mr-mamamiya.github.io/post/chang-yong-docker-jing-xiang/">
-                      <h2 class="post-title">
-                        常用Docker镜像
-                      </h2>
-                    </a>
-                  </article>
-                
-              
             
+
+            
+
           </div>
-
-          <div class="pagination-container">
-  
-  
-</div>
 
         </div>
       </div>
